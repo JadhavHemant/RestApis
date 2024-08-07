@@ -1,15 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import the cors package
 
 const app = express();
 const port = 3000;
 
 // MongoDB connection string - replace with your actual connection string
+//const mongoURI = 'mongodb://jadhavhemantbalkrushna:sPPL0UNSyDMxtH8X@cluster0-shard-00-00.xxxxx.mongodb.net:27017,cluster0-shard-00-01.xxxxx.mongodb.net:27017,cluster0-shard-00-02.xxxxx.mongodb.net:27017/mydatabase?ssl=true&replicaSet=atlas-yx8yf8-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0';
 const mongoURI = 'mongodb+srv://jadhavhemantbalkrushna:sPPL0UNSyDMxtH8X@hemant.9wuh4.mongodb.net/?retryWrites=true&w=majority&appName=Hemant';
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all routes
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
